@@ -34,8 +34,11 @@ const UsuarioSchema = Schema({
   });
 // esta función permite filtrar el modelo usuario, quitar de poder devolverlo entero y se guarda el modelo entero en DB
 UsuarioSchema.methods.toJSON = function() {
-    const {__v, password, ...user} = this.toObject();
-    return user
+    const {__v, password,_id, ...user} = this.toObject();
+    user.uid = _id;
+    return user //filtrado
 }
+
+
 
 module.exports = model('Usuario', UsuarioSchema);
