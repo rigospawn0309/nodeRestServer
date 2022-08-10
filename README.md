@@ -6,7 +6,7 @@ NOTES:
 HEROKU DEPLOY
 ----ESTABLECIMIENTO DE VARIABLES DE ENTORNO----
 heroku config - para ver las variables de entorno
-heroku config:set VARIBLENUEVA="KEY" - Establecimiento de la varible con comillas a diferencia de la local
+heroku config:set VARIBLENUEVA="KEY" - Establecimiento de la varible con o sin comillas es igual
 
 ----Despliegue----
 git add .
