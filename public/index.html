@@ -24,7 +24,7 @@
       data-shape="rectangular"
       data-logo_alignment="left"
     ></div>
-    <button id="google_signout">Signout</button>
+    <button id="g_id_signout">Signout</button>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
       function handleCredentialResponse(response) {
@@ -44,15 +44,17 @@
          .catch(console.warn)
       };
 
-      const button = document.getElementById('google_signout');
-      button.onclick =() => {
+      const button = document.getElementById('g_id_signout');
+      button.onclick = async() => {
+
         console.log(google.accounts.id)
         google.accounts.id.disableAutoSelect()
-        google.accounts.id.revoke(localStorage.getItem('email'), done =>{
-          localStorage.clear();
-          location.reload();
-        })
-      }
+        google.accounts.id.revoke(localStorage.getItem('email'), done => {
+            console.log('consent revoked');
+            localStorage.clear()
+            location.reload()
+        });
+    }
     </script>
   </body>
 </html>
