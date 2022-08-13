@@ -35,7 +35,6 @@ router.post('/',[
 
 router.delete('/:id',[
     validarJWT,
-    //esAdminRole,
     tieneRole('ADMIN_ROLE','USER_ROLE'),
     check('id', 'No es un ID válido')
     .exists({ checkNull: true }).bail()
